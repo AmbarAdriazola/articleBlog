@@ -1,0 +1,40 @@
+{{> navbar}}
+<div class="container mt-3">
+  <h1>
+    {{#if id}}
+      Campeón actualizado "{{title}}" ({{id}})
+    {{else}}
+      Actualiza tu nuevo Campeón
+    {{/if}}
+  </h1>
+ 
+  <form action="/champions/{{#if id}}{{id}}/update{{else}}create{{/if}}" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="title" aria-describedby="titleHelp" required="true" value="{{title}}">
+      <div id="titleHelp" class="form-text">Nombre de Campeón</div>
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Descripción</label>
+      <textarea class="form-control" name="content" rows="3" aria-describedby="contentHelp">{{content}}</textarea>
+      <div id="contentHelp" class="form-text">Cuenta la historia de tu Campeón</div>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Splash art</label>
+      <input type="text" class="form-control" name="image" aria-describedby="imageHelp" required="true" value="{{image}}">
+      <div id="imageHelp" class="form-text">Sube el mejor Splash art</div>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Rol</label> 
+        <select class="form-control" name="category" required="true" value="{{category}}">
+          {{#each categorys}}
+              <option value="{{this.category}}" {{this.select}}>{{this.category}}</option>
+          {{/each}}
+      </select>
+    </div>
+    
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+{{> navbar}}
+<div class="container mt-3">
+  <header class="my-5">
+    <h1>Bienvenido a la guia de LoL</h1>
+    <p>
+    League of Legends tiene lugar en el mundo ficticio de Runaterra. Los personajes, mejor conocidos como campeones, son una colección de héroes y villanos que tienen una variedad de historias, a menudo relacionadas con las luchas políticas de los diversos países del continente principal de Valoran. Además, algunos campeones son extraplanares y provienen de mundos diferentes a Runaterra, pero están de visita para sus propios fines. Estos campeones a veces chocan entre sí, lo cual se ve reflejado en la jugabilidad de League of Legends.    </p>
+    <a href="/about">Quieres saber mas sobre mi?</a>
+  </header>
+  <hr>
+  <h3 class="mt-5 mb-3">Últimos campeones agregados.</h3>
+  {{#each champions}}
+    <div class="card mb-3">
+      <div class="card-body">
+        <img src="{{this.image}}" width="250px" height="250px">
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">{{this.content}}</p>
+        <p class="card-text">{{this.category}}</p>
+        <a href="/champion/{{this.id}}" class="btn btn-primary btn-sm">saber más</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
